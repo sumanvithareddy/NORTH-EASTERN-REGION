@@ -1,852 +1,661 @@
 /* =========================================================
    NER-LINK
-   Smart Logistics & Accessibility Intelligence Platform
-   Dashboard JavaScript
-========================================================= */
+   AI Smart Logistics & Accessibility Intelligence Platform
+   ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================================
-       LIVE CLOCK
-    ===================================================== */
+/* ================= SCREEN NAVIGATION ================= */
 
-    const clock = document.getElementById("currentTime");
+const navItems = document.querySelectorAll(".nav-item");
+const screens = document.querySelectorAll(".screen");
 
-    function updateClock() {
+const pageTitle = document.getElementById("pageTitle");
+const pageSubtitle = document.getElementById("pageSubtitle");
 
-        if (!clock) return;
 
-        const now = new Date();
+const screenInfo = {
 
-        const hours = String(now.getHours()).padStart(2, "0");
-        const minutes = String(now.getMinutes()).padStart(2, "0");
-        const seconds = String(now.getSeconds()).padStart(2, "0");
+    dashboard: {
+        title: "Regional Operations Dashboard",
+        subtitle: "AI-powered logistics and accessibility intelligence"
+    },
 
-        clock.textContent = `${hours}:${minutes}:${seconds}`;
+    map: {
+        title: "Live Accessibility Map",
+        subtitle: "GIS-powered regional connectivity monitoring"
+    },
+
+    ai: {
+        title: "AI Risk Prediction Engine",
+        subtitle: "Predictive disruption and route optimization"
+    },
+
+    logistics: {
+        title: "Logistics Operations",
+        subtitle: "Essential commodity and vehicle monitoring"
+    },
+
+    emergency: {
+        title: "Emergency Response Center",
+        subtitle: "Priority disaster and emergency logistics"
+    },
+
+    reports: {
+        title: "Field Intelligence",
+        subtitle: "Geo-tagged incident reporting and offline sync"
+    },
+
+    analytics: {
+        title: "Regional Analytics",
+        subtitle: "Operational insights and connectivity intelligence"
     }
 
-    updateClock();
-
-    setInterval(updateClock, 1000);
+};
 
 
-    /* =====================================================
-       SIDEBAR NAVIGATION
-    ===================================================== */
+function openScreen(screenName) {
 
-    const navItems = document.querySelectorAll(".nav-item");
+    screens.forEach(screen => {
+
+        screen.classList.remove("active-screen");
+
+    });
+
+
+    const selectedScreen =
+        document.getElementById(screenName);
+
+    if (selectedScreen) {
+
+        selectedScreen.classList.add("active-screen");
+
+    }
+
 
     navItems.forEach(item => {
 
-        item.addEventListener("click", event => {
+        item.classList.remove("active");
 
-            event.preventDefault();
-
-            navItems.forEach(nav => {
-                nav.classList.remove("active");
-            });
+        if (item.dataset.screen === screenName) {
 
             item.classList.add("active");
 
-        });
-
-    });
-
-
-    /* =====================================================
-       MAP FILTERS
-    ===================================================== */
-
-    const mapFilters = document.querySelectorAll(".map-filter");
-
-    mapFilters.forEach(filter => {
-
-        filter.addEventListener("click", () => {
-
-            mapFilters.forEach(button => {
-                button.classList.remove("active-filter");
-            });
-
-            filter.classList.add("active-filter");
-
-            const selected = filter.textContent.trim();
-
-            showToast(`${selected} map layer selected`);
-
-        });
-
-    });
-
-
-    /* =====================================================
-       VEHICLE MOVEMENT
-    ===================================================== */
-
-    const vehicleOne = document.querySelector(".vehicle-one");
-    const vehicleTwo = document.querySelector(".vehicle-two");
-
-    let vehicleOnePosition = 0;
-    let vehicleTwoPosition = 0;
-
-    function moveVehicles() {
-
-        if (vehicleOne) {
-
-            vehicleOnePosition += 0.35;
-
-            if (vehicleOnePosition > 12) {
-                vehicleOnePosition = 0;
-            }
-
-            vehicleOne.style.transform =
-                `translateX(${vehicleOnePosition}px)`;
         }
 
-
-        if (vehicleTwo) {
-
-            vehicleTwoPosition += 0.25;
-
-            if (vehicleTwoPosition > 10) {
-                vehicleTwoPosition = 0;
-            }
-
-            vehicleTwo.style.transform =
-                `translateX(${vehicleTwoPosition}px)`;
-        }
-
-    }
-
-    setInterval(moveVehicles, 100);
-
-
-    /* =====================================================
-       ALERT INTERACTIONS
-    ===================================================== */
-
-    const alerts = document.querySelectorAll(".alert-item");
-
-    alerts.forEach(alert => {
-
-        alert.style.cursor = "pointer";
-
-        alert.addEventListener("click", () => {
-
-            const title =
-                alert.querySelector(".alert-content strong");
-
-            if (title) {
-                showToast(`Opening alert: ${title.textContent}`);
-            }
-
-        });
-
     });
 
 
-    /* =====================================================
-       PRIMARY ROUTE BUTTON
-    ===================================================== */
+    if (screenInfo[screenName]) {
 
-    const routeButton =
-        document.querySelector(".primary-button");
+        pageTitle.textContent =
+            screenInfo[screenName].title;
 
-    if (routeButton) {
-
-        routeButton.addEventListener("click", () => {
-
-            showToast(
-                "AI is calculating the safest alternate route..."
-            );
-
-            routeButton.innerHTML =
-                "CALCULATING ROUTE <span>⟳</span>";
-
-            routeButton.disabled = true;
-
-            setTimeout(() => {
-
-                routeButton.innerHTML =
-                    "ALTERNATE ROUTE FOUND <span>✓</span>";
-
-                routeButton.style.background =
-                    "linear-gradient(135deg, #18d26e, #0b9e4c)";
-
-                routeButton.style.color =
-                    "#031009";
-
-                showToast(
-                    "Safe alternate route identified"
-                );
-
-            }, 1800);
-
-        });
+        pageSubtitle.textContent =
+            screenInfo[screenName].subtitle;
 
     }
 
 
-    /* =====================================================
-       NOTIFICATION BUTTON
-    ===================================================== */
-
-    const notificationButton =
-        document.querySelector(".notification-button");
-
-    if (notificationButton) {
-
-        notificationButton.addEventListener("click", () => {
-
-            showNotificationPanel();
-
-        });
-
-    }
-
-
-    /* =====================================================
-       PROFILE BUTTON
-    ===================================================== */
-
-    const profileButton =
-        document.querySelector(".profile-button");
-
-    if (profileButton) {
-
-        profileButton.addEventListener("click", () => {
-
-            showToast("Administrator profile");
-
-        });
-
-    }
-
-
-    /* =====================================================
-       VIEW ALL ALERTS
-    ===================================================== */
-
-    const viewAllButtons =
-        document.querySelectorAll(".view-all");
-
-    viewAllButtons.forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            showToast("Loading detailed information...");
-
-        });
-
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
     });
 
+}
 
-    /* =====================================================
-       STATE HOVER INFORMATION
-    ===================================================== */
 
-    const states =
-        document.querySelectorAll(".state");
+/* Sidebar */
 
-    states.forEach(state => {
+navItems.forEach(item => {
 
-        state.addEventListener("click", () => {
+    item.addEventListener("click", () => {
 
-            const stateName =
-                state.textContent.trim();
-
-            showStateInfo(stateName);
-
-        });
+        openScreen(item.dataset.screen);
 
     });
-
-
-    /* =====================================================
-       LIVE DATA SIMULATION
-    ===================================================== */
-
-    const connectivityCard =
-        document.querySelector(
-            ".stat-card:nth-child(1) .stat-value"
-        );
-
-    const riskCard =
-        document.querySelector(
-            ".stat-card:nth-child(2) .stat-value"
-        );
-
-    const vehicleCard =
-        document.querySelector(
-            ".stat-card:nth-child(3) .stat-value"
-        );
-
-    function simulateLiveData() {
-
-        if (connectivityCard) {
-
-            const value =
-                (82 + Math.random() * 1.2).toFixed(1);
-
-            connectivityCard.innerHTML =
-                `${value}<span>%</span>`;
-        }
-
-
-        if (riskCard) {
-
-            const risk =
-                Math.floor(13 + Math.random() * 3);
-
-            riskCard.textContent = risk;
-
-        }
-
-
-        if (vehicleCard) {
-
-            const vehicles =
-                Math.floor(124 + Math.random() * 6);
-
-            vehicleCard.textContent = vehicles;
-
-        }
-
-    }
-
-    setInterval(simulateLiveData, 8000);
-
-
-    /* =====================================================
-       TOOLTIP FOR MAP POINTS
-    ===================================================== */
-
-    const mapPoints =
-        document.querySelectorAll(".map-point");
-
-    mapPoints.forEach(point => {
-
-        point.addEventListener("click", () => {
-
-            let status = "Accessible";
-
-            if (point.classList.contains("point-orange")) {
-                status = "At Risk";
-            }
-
-            if (point.classList.contains("point-red")) {
-                status = "Blocked";
-            }
-
-            showToast(`Route status: ${status}`);
-
-        });
-
-    });
-
-
-    /* =====================================================
-       SYSTEM ONLINE MESSAGE
-    ===================================================== */
-
-    setTimeout(() => {
-
-        showToast(
-            "NER-LINK intelligence system connected"
-        );
-
-    }, 1200);
 
 });
 
 
-/* =========================================================
-   TOAST MESSAGE
-========================================================= */
+/* Buttons that open screens */
+
+document.querySelectorAll("[data-screen-btn]").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        openScreen(button.dataset.screenBtn);
+
+    });
+
+});
+
+
+/* ================= LIVE CLOCK ================= */
+
+function updateClock() {
+
+    const clock =
+        document.getElementById("currentTime");
+
+    if (!clock) return;
+
+
+    const now = new Date();
+
+
+    const time =
+        now.toLocaleTimeString("en-IN", {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit"
+        });
+
+
+    clock.textContent = time;
+
+}
+
+
+updateClock();
+
+setInterval(updateClock, 1000);
+
+
+/* ================= NOTIFICATIONS ================= */
+
+const notificationBtn =
+    document.getElementById("notificationBtn");
+
+const notificationPanel =
+    document.getElementById("notificationPanel");
+
+
+notificationBtn.addEventListener("click", event => {
+
+    event.stopPropagation();
+
+    notificationPanel.classList.toggle("show");
+
+});
+
+
+document.addEventListener("click", event => {
+
+    if (
+        !notificationPanel.contains(event.target) &&
+        !notificationBtn.contains(event.target)
+    ) {
+
+        notificationPanel.classList.remove("show");
+
+    }
+
+});
+
+
+/* ================= AI ANALYSIS ================= */
+
+const analyzeBtn =
+    document.getElementById("analyzeBtn");
+
+const riskNumber =
+    document.getElementById("riskNumber");
+
+const bigRisk =
+    document.getElementById("bigRisk");
+
+
+if (analyzeBtn) {
+
+    analyzeBtn.addEventListener("click", () => {
+
+        analyzeBtn.textContent =
+            "◌ Analyzing Route...";
+
+
+        setTimeout(() => {
+
+            const newRisk =
+                Math.floor(Math.random() * 25) + 40;
+
+
+            if (riskNumber) {
+
+                riskNumber.textContent =
+                    newRisk;
+
+            }
+
+
+            if (bigRisk) {
+
+                bigRisk.textContent =
+                    newRisk;
+
+            }
+
+
+            analyzeBtn.textContent =
+                "✓ Analysis Complete";
+
+
+            showToast(
+                "AI analysis completed. Alternate route identified."
+            );
+
+
+            setTimeout(() => {
+
+                analyzeBtn.textContent =
+                    "◈ Run AI Route Analysis";
+
+            }, 2500);
+
+
+        }, 1600);
+
+    });
+
+}
+
+
+/* ================= MAP FILTERS ================= */
+
+const mapFilters =
+    document.querySelectorAll(".map-filter");
+
+
+mapFilters.forEach(filter => {
+
+    filter.addEventListener("click", () => {
+
+        mapFilters.forEach(item => {
+
+            item.classList.remove("active");
+
+        });
+
+
+        filter.classList.add("active");
+
+
+        showToast(
+            filter.textContent +
+            " layer enabled"
+        );
+
+    });
+
+});
+
+
+/* ================= LARGE MAP FILTERS ================= */
+
+const largeFilters =
+    document.querySelectorAll(".filter-button");
+
+
+largeFilters.forEach(filter => {
+
+    filter.addEventListener("click", () => {
+
+        largeFilters.forEach(item => {
+
+            item.classList.remove("active");
+
+        });
+
+
+        filter.classList.add("active");
+
+
+        showToast(
+            filter.textContent +
+            " map layer selected"
+        );
+
+    });
+
+});
+
+
+/* ================= VEHICLE SIMULATION ================= */
+
+const vehicleOne =
+    document.querySelector(".vehicle-one");
+
+const vehicleTwo =
+    document.querySelector(".vehicle-two");
+
+
+function moveVehicles() {
+
+    if (!vehicleOne || !vehicleTwo) return;
+
+
+    const positionsOne = [
+
+        ["45%", "42%"],
+        ["50%", "46%"],
+        ["55%", "40%"],
+        ["59%", "47%"],
+        ["53%", "53%"]
+
+    ];
+
+
+    const positionsTwo = [
+
+        ["58%", "61%"],
+        ["63%", "58%"],
+        ["66%", "64%"],
+        ["60%", "69%"],
+        ["55%", "64%"]
+
+    ];
+
+
+    const randomOne =
+        positionsOne[
+            Math.floor(Math.random() * positionsOne.length)
+        ];
+
+
+    const randomTwo =
+        positionsTwo[
+            Math.floor(Math.random() * positionsTwo.length)
+        ];
+
+
+    vehicleOne.style.left =
+        randomOne[0];
+
+    vehicleOne.style.top =
+        randomOne[1];
+
+
+    vehicleTwo.style.left =
+        randomTwo[0];
+
+    vehicleTwo.style.top =
+        randomTwo[1];
+
+}
+
+
+setInterval(moveVehicles, 4000);
+
+
+/* ================= MAP POINTS ================= */
+
+document.querySelectorAll(".map-point").forEach(point => {
+
+    point.addEventListener("click", () => {
+
+        if (point.classList.contains("point-red")) {
+
+            showToast(
+                "⚠ Critical disruption detected at this location."
+            );
+
+        }
+
+        else if (point.classList.contains("point-orange")) {
+
+            showToast(
+                "⚠ AI identifies elevated route risk."
+            );
+
+        }
+
+        else {
+
+            showToast(
+                "✓ Route currently accessible."
+            );
+
+        }
+
+    });
+
+});
+
+
+/* ================= STATE INFORMATION ================= */
+
+const states =
+    document.querySelectorAll(".state");
+
+
+const stateMessages = {
+
+    ASSAM:
+        "Assam: 91% regional connectivity. Main corridors operational.",
+
+    ARUNACHAL:
+        "Arunachal Pradesh: Elevated landslide risk detected.",
+
+    MANIPUR:
+        "Manipur: 3 corridors require additional monitoring.",
+
+    MEGHALAYA:
+        "Meghalaya: Heavy rainfall may affect mountain routes.",
+
+    MIZORAM:
+        "Mizoram: Aizawl–Silchar corridor currently operational.",
+
+    NAGALAND:
+        "Nagaland: Moderate traffic and weather risk.",
+
+    TRIPURA:
+        "Tripura: Essential supply routes functioning normally.",
+
+    SIKKIM:
+        "Sikkim: Mountain corridor monitoring active."
+
+};
+
+
+states.forEach(state => {
+
+    state.addEventListener("click", () => {
+
+        const name =
+            state.textContent.trim();
+
+        const message =
+            stateMessages[name] ||
+            "Regional monitoring active.";
+
+        showToast(message);
+
+    });
+
+});
+
+
+/* ================= ALERT INTERACTION ================= */
+
+document.querySelectorAll(".alert-item").forEach(alert => {
+
+    alert.addEventListener("click", () => {
+
+        const title =
+            alert.querySelector("h4");
+
+        if (title) {
+
+            showToast(
+                "Alert selected: " +
+                title.textContent
+            );
+
+        }
+
+    });
+
+});
+
+
+/* ================= VIEW ALL ================= */
+
+document.querySelector(".view-all")?.addEventListener(
+    "click",
+    () => {
+
+        showToast(
+            "Showing all active regional alerts."
+        );
+
+    }
+);
+
+
+/* ================= FIELD REPORT ================= */
+
+const reportForm =
+    document.getElementById("reportForm");
+
+
+if (reportForm) {
+
+    reportForm.addEventListener("submit", event => {
+
+        event.preventDefault();
+
+
+        showToast(
+            "✓ Field report submitted and queued for synchronization."
+        );
+
+
+        reportForm.reset();
+
+    });
+
+}
+
+
+/* ================= DELIVERY SIMULATION ================= */
+
+const deliveryCount =
+    document.getElementById("deliveryCount");
+
+
+const vehicleCount =
+    document.getElementById("vehicleCount");
+
+
+function updateLiveNumbers() {
+
+    if (deliveryCount) {
+
+        const value =
+            320 +
+            Math.floor(Math.random() * 15);
+
+        deliveryCount.textContent =
+            value;
+
+    }
+
+
+    if (vehicleCount) {
+
+        const value =
+            140 +
+            Math.floor(Math.random() * 15);
+
+        vehicleCount.textContent =
+            value;
+
+    }
+
+}
+
+
+setInterval(updateLiveNumbers, 7000);
+
+
+/* ================= TOAST ================= */
 
 function showToast(message) {
 
-    const existing =
-        document.querySelector(".ner-toast");
+    const oldToast =
+        document.querySelector(".toast");
 
-    if (existing) {
-        existing.remove();
+    if (oldToast) {
+
+        oldToast.remove();
+
     }
 
 
     const toast =
         document.createElement("div");
 
-    toast.className = "ner-toast";
 
-    toast.innerHTML = `
-        <span class="toast-icon">✓</span>
-        <span>${message}</span>
-    `;
+    toast.className =
+        "toast";
+
+
+    toast.textContent =
+        message;
 
 
     document.body.appendChild(toast);
 
 
-    requestAnimationFrame(() => {
-
-        toast.classList.add("show");
-
-    });
-
-
     setTimeout(() => {
 
-        toast.classList.remove("show");
+        toast.remove();
 
-        setTimeout(() => {
-            toast.remove();
-        }, 300);
-
-    }, 2800);
+    }, 3200);
 
 }
 
 
-/* =========================================================
-   NOTIFICATION PANEL
-========================================================= */
+/* ================= PROFILE ================= */
 
-function showNotificationPanel() {
-
-    const oldPanel =
-        document.querySelector(".notification-panel");
-
-    if (oldPanel) {
-
-        oldPanel.remove();
-
-        return;
-    }
+const profileButton =
+    document.querySelector(".profile-button");
 
 
-    const panel =
-        document.createElement("div");
+if (profileButton) {
 
-    panel.className =
-        "notification-panel";
+    profileButton.addEventListener("click", () => {
 
-
-    panel.innerHTML = `
-
-        <div class="notification-header">
-
-            <div>
-
-                <strong>Notifications</strong>
-
-                <small>3 new updates</small>
-
-            </div>
-
-            <button class="close-notifications">
-                ×
-            </button>
-
-        </div>
-
-
-        <div class="notification-item">
-
-            <span class="notification-dot critical-dot"></span>
-
-            <div>
-
-                <strong>Road blockage detected</strong>
-
-                <small>NH-2 · Manipur · 8 min ago</small>
-
-            </div>
-
-        </div>
-
-
-        <div class="notification-item">
-
-            <span class="notification-dot warning-dot"></span>
-
-            <div>
-
-                <strong>Heavy rainfall warning</strong>
-
-                <small>Meghalaya · 21 min ago</small>
-
-            </div>
-
-        </div>
-
-
-        <div class="notification-item">
-
-            <span class="notification-dot info-dot"></span>
-
-            <div>
-
-                <strong>Delivery delay predicted</strong>
-
-                <small>Mizoram · 34 min ago</small>
-
-            </div>
-
-        </div>
-
-    `;
-
-
-    document.body.appendChild(panel);
-
-
-    const close =
-        panel.querySelector(
-            ".close-notifications"
+        showToast(
+            "NER Operations Administrator"
         );
-
-    close.addEventListener("click", () => {
-
-        panel.remove();
 
     });
 
 }
 
 
-/* =========================================================
-   STATE INFORMATION
-========================================================= */
+/* ================= INITIAL DEMO MESSAGE ================= */
 
-function showStateInfo(stateName) {
+setTimeout(() => {
 
-    const information = {
+    showToast(
+        "NER-LINK intelligence system online."
+    );
 
-        "ASSAM": "Connectivity: 92% · 4 active alerts",
+}, 1000);
 
-        "ARUNACHAL":
-            "Connectivity: 52% · 8 high-risk corridors",
 
-        "MANIPUR":
-            "Connectivity: 61% · 4 blocked routes",
+/* ================= CONSOLE ================= */
 
-        "MEGHALAYA":
-            "Connectivity: 79% · Heavy rainfall",
+console.log(
+    "%cNER-LINK",
+    "color:#20e58a;font-size:24px;font-weight:bold;"
+);
 
-        "MIZORAM":
-            "Connectivity: 57% · 3 delivery delays",
+console.log(
+    "AI Smart Logistics & Accessibility Intelligence Platform"
+);
 
-        "NAGALAND":
-            "Connectivity: 68% · 5 monitored routes",
-
-        "TRIPURA":
-            "Connectivity: 84% · Network stable",
-
-        "SIKKIM":
-            "Connectivity: 76% · Weather monitoring active"
-
-    };
-
-
-    const message =
-        information[stateName] ||
-        `${stateName} · Monitoring active`;
-
-
-    showToast(message);
-
-}
-
-
-/* =========================================================
-   ADDITIONAL UI STYLES
-========================================================= */
-
-const dynamicStyles =
-document.createElement("style");
-
-dynamicStyles.textContent = `
-
-    .ner-toast {
-
-        position: fixed;
-
-        right: 28px;
-        bottom: 25px;
-
-        z-index: 9999;
-
-        display: flex;
-
-        align-items: center;
-
-        gap: 9px;
-
-        padding: 11px 15px;
-
-        border-radius: 9px;
-
-        background: #111b16;
-
-        border: 1px solid rgba(24,210,110,0.2);
-
-        color: #dce8e1;
-
-        font-size: 9px;
-
-        box-shadow:
-            0 12px 40px rgba(0,0,0,0.45);
-
-        transform:
-            translateY(20px);
-
-        opacity: 0;
-
-        transition:
-            all 0.3s ease;
-
-    }
-
-
-    .ner-toast.show {
-
-        transform:
-            translateY(0);
-
-        opacity: 1;
-
-    }
-
-
-    .toast-icon {
-
-        width: 20px;
-        height: 20px;
-
-        display: flex;
-
-        align-items: center;
-        justify-content: center;
-
-        border-radius: 50%;
-
-        background: rgba(24,210,110,0.12);
-
-        color: #18d26e;
-
-        font-size: 9px;
-
-    }
-
-
-    .notification-panel {
-
-        position: fixed;
-
-        top: 80px;
-        right: 30px;
-
-        z-index: 9998;
-
-        width: 315px;
-
-        background:
-            linear-gradient(
-                145deg,
-                #111b16,
-                #0a110d
-            );
-
-        border:
-            1px solid rgba(255,255,255,0.08);
-
-        border-radius: 14px;
-
-        box-shadow:
-            0 20px 60px rgba(0,0,0,0.55);
-
-        overflow: hidden;
-
-        animation:
-            notificationOpen
-            0.25s ease;
-
-    }
-
-
-    .notification-header {
-
-        display: flex;
-
-        justify-content:
-            space-between;
-
-        align-items: center;
-
-        padding: 16px;
-
-        border-bottom:
-            1px solid rgba(255,255,255,0.06);
-
-    }
-
-
-    .notification-header strong {
-
-        display: block;
-
-        font-size: 11px;
-
-    }
-
-
-    .notification-header small {
-
-        display: block;
-
-        margin-top: 3px;
-
-        color: #5e7167;
-
-        font-size: 8px;
-
-    }
-
-
-    .close-notifications {
-
-        width: 25px;
-        height: 25px;
-
-        border: none;
-
-        border-radius: 6px;
-
-        background:
-            rgba(255,255,255,0.04);
-
-        color: #91a39a;
-
-        font-size: 16px;
-
-    }
-
-
-    .notification-item {
-
-        display: flex;
-
-        align-items: flex-start;
-
-        gap: 10px;
-
-        padding: 13px 16px;
-
-        border-bottom:
-            1px solid rgba(255,255,255,0.04);
-
-    }
-
-
-    .notification-item:last-child {
-
-        border-bottom: none;
-
-    }
-
-
-    .notification-item strong {
-
-        display: block;
-
-        font-size: 8px;
-
-        color: #f2f7f4;
-
-    }
-
-
-    .notification-item small {
-
-        display: block;
-
-        color: #5e7167;
-
-        font-size: 7px;
-
-        margin-top: 4px;
-
-    }
-
-
-    .notification-dot {
-
-        width: 7px;
-        height: 7px;
-
-        flex-shrink: 0;
-
-        border-radius: 50%;
-
-        margin-top: 3px;
-
-    }
-
-
-    .critical-dot {
-
-        background: #ff4d5a;
-
-        box-shadow:
-            0 0 8px rgba(255,77,90,0.5);
-
-    }
-
-
-    .warning-dot {
-
-        background: #ff8a24;
-
-        box-shadow:
-            0 0 8px rgba(255,138,36,0.5);
-
-    }
-
-
-    .info-dot {
-
-        background: #38a8ff;
-
-        box-shadow:
-            0 0 8px rgba(56,168,255,0.5);
-
-    }
-
-
-    @keyframes notificationOpen {
-
-        from {
-
-            opacity: 0;
-
-            transform:
-                translateY(-8px)
-                scale(0.98);
-
-        }
-
-        to {
-
-            opacity: 1;
-
-            transform:
-                translateY(0)
-                scale(1);
-
-        }
-
-    }
-
-`;
-
-document.head.appendChild(dynamicStyles);
+console.log(
+    "Prototype simulation initialized successfully."
+);
