@@ -4,137 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NER-LINK | Logistics Intelligence Platform</title>
-
-    <meta name="description"
-        content="AI-powered logistics and accessibility intelligence platform for North Eastern Region">
+    <title>NER-LINK | Smart Logistics Intelligence</title>
 
     <link rel="stylesheet" href="css/style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-        rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- =========================
-         SIDEBAR
-    ========================== -->
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
 
     <aside class="sidebar">
 
         <div class="brand">
-
-            <div class="brand-icon">
-                <span>NL</span>
-            </div>
-
-            <div class="brand-text">
-                <h2>NER<span>-LINK</span></h2>
-                <p>LOGISTICS INTELLIGENCE</p>
-            </div>
-
-        </div>
-
-
-        <div class="system-status">
-
-            <span class="status-dot"></span>
+            <div class="brand-logo">NL</div>
 
             <div>
-                <strong>System Online</strong>
-                <small>Live monitoring active</small>
+                <h1>NER-LINK</h1>
+                <span>SMART LOGISTICS AI</span>
             </div>
-
         </div>
 
+        <div class="system-status">
+            <span class="status-dot"></span>
+            <span>All systems operational</span>
+        </div>
+
+        <div class="nav-title">MAIN MENU</div>
 
         <nav class="navigation">
 
-            <p class="nav-title">MAIN</p>
-
-            <a href="#" class="nav-item active">
-                <span class="nav-icon">⌂</span>
+            <button class="nav-item active" data-screen="dashboard">
+                <span>⌂</span>
                 <span>Dashboard</span>
-            </a>
+            </button>
 
-            <a href="#" class="nav-item">
-                <span class="nav-icon">◉</span>
+            <button class="nav-item" data-screen="map">
+                <span>◉</span>
                 <span>Live Map</span>
-            </a>
+            </button>
 
-            <a href="#" class="nav-item">
-                <span class="nav-icon">◆</span>
-                <span>AI Risk Intelligence</span>
-            </a>
+            <button class="nav-item" data-screen="ai">
+                <span>◈</span>
+                <span>AI Risk Engine</span>
+            </button>
 
-            <a href="#" class="nav-item">
-                <span class="nav-icon">▣</span>
-                <span>Logistics Tracking</span>
-            </a>
+            <button class="nav-item" data-screen="logistics">
+                <span>▣</span>
+                <span>Logistics</span>
+            </button>
 
-            <p class="nav-title">OPERATIONS</p>
-
-            <a href="#" class="nav-item">
-                <span class="nav-icon">⚠</span>
-                <span>Alerts</span>
-                <span class="nav-badge">14</span>
-            </a>
-
-            <a href="#" class="nav-item">
-                <span class="nav-icon">✚</span>
+            <button class="nav-item" data-screen="emergency">
+                <span>⚠</span>
                 <span>Emergency Mode</span>
-            </a>
+            </button>
 
-            <a href="#" class="nav-item">
-                <span class="nav-icon">⌖</span>
+            <button class="nav-item" data-screen="reports">
+                <span>✚</span>
                 <span>Field Reports</span>
-            </a>
+            </button>
 
-            <p class="nav-title">ANALYTICS</p>
-
-            <a href="#" class="nav-item">
-                <span class="nav-icon">▥</span>
-                <span>Logistics Analytics</span>
-            </a>
-
-            <a href="#" class="nav-item">
-                <span class="nav-icon">◌</span>
-                <span>Reports</span>
-            </a>
+            <button class="nav-item" data-screen="analytics">
+                <span>▤</span>
+                <span>Analytics</span>
+            </button>
 
         </nav>
 
-
         <div class="sidebar-bottom">
 
-            <div class="security-box">
+            <div class="offline-card">
+                <div class="offline-title">NETWORK STATUS</div>
 
-                <div class="security-icon">✓</div>
-
-                <div>
-                    <strong>Secure Network</strong>
-                    <small>Encrypted connection</small>
+                <div class="offline-row">
+                    <span>Cloud Sync</span>
+                    <strong>ONLINE</strong>
                 </div>
 
+                <div class="offline-row">
+                    <span>Offline Cache</span>
+                    <strong>READY</strong>
+                </div>
             </div>
 
-            <div class="user-profile">
+            <div class="sidebar-user">
+                <div class="user-avatar">AD</div>
 
-                <div class="avatar">
-                    SA
+                <div>
+                    <strong>Admin Dashboard</strong>
+                    <small>NER Operations</small>
                 </div>
-
-                <div class="user-info">
-                    <strong>System Admin</strong>
-                    <small>Administrator</small>
-                </div>
-
-                <button class="more-btn">•••</button>
-
             </div>
 
         </div>
@@ -142,57 +102,37 @@
     </aside>
 
 
-    <!-- =========================
-         MAIN CONTENT
-    ========================== -->
+    <!-- ================= MAIN ================= -->
 
-    <main class="main-content">
+    <main class="main">
 
-
-        <!-- TOP HEADER -->
+        <!-- TOP BAR -->
 
         <header class="topbar">
 
-            <div class="page-heading">
+            <div class="page-title">
 
-                <div class="breadcrumb">
-                    NER-LINK <span>/</span> Overview
-                </div>
+                <h2 id="pageTitle">Regional Operations Dashboard</h2>
 
-                <h1>Regional Intelligence Dashboard</h1>
-
-                <p>
-                    Real-time logistics and accessibility monitoring across
-                    the North Eastern Region.
+                <p id="pageSubtitle">
+                    AI-powered logistics and accessibility intelligence
                 </p>
 
             </div>
 
+            <div class="top-actions">
 
-            <div class="topbar-actions">
-
-                <div class="live-clock">
-
-                    <span class="clock-dot"></span>
-
-                    <div>
-                        <strong id="currentTime">20:42:18</strong>
-                        <small>LIVE DATA</small>
-                    </div>
-
+                <div class="live-clock" id="currentTime">
+                    --:--:--
                 </div>
 
-
-                <button class="icon-button notification-button">
-                    <span>♢</span>
-                    <b>3</b>
+                <button class="icon-button notification-button" id="notificationBtn">
+                    🔔
+                    <span class="notification-badge">3</span>
                 </button>
 
-
                 <button class="profile-button">
-                    <span class="mini-avatar">SA</span>
-                    <span>Admin</span>
-                    <span class="arrow">⌄</span>
+                    AD
                 </button>
 
             </div>
@@ -200,784 +140,1943 @@
         </header>
 
 
-        <!-- =========================
-             KPI CARDS
-        ========================== -->
+        <!-- ================= CONTENT ================= -->
 
-        <section class="stats-grid">
+        <div class="content">
 
 
-            <div class="stat-card">
+            <!-- ==================================================
+                 DASHBOARD
+                 ================================================== -->
 
-                <div class="stat-top">
+            <section class="screen active-screen" id="dashboard">
 
-                    <div class="stat-icon green-icon">
-                        ◉
-                    </div>
+                <div class="hero">
 
-                    <span class="trend positive">
-                        ↑ 4.8%
-                    </span>
+                    <div class="hero-content">
 
-                </div>
-
-                <p>Regional Connectivity</p>
-
-                <div class="stat-value">
-                    82.4<span>%</span>
-                </div>
-
-                <small>
-                    Across monitored routes
-                </small>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <div class="stat-top">
-
-                    <div class="stat-icon orange-icon">
-                        ⚠
-                    </div>
-
-                    <span class="trend warning">
-                        +3 today
-                    </span>
-
-                </div>
-
-                <p>High Risk Corridors</p>
-
-                <div class="stat-value">
-                    14
-                </div>
-
-                <small>
-                    Requiring attention
-                </small>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <div class="stat-top">
-
-                    <div class="stat-icon blue-icon">
-                        🚚
-                    </div>
-
-                    <span class="trend positive">
-                        ↑ 12
-                    </span>
-
-                </div>
-
-                <p>Active Supply Vehicles</p>
-
-                <div class="stat-value">
-                    126
-                </div>
-
-                <small>
-                    Currently on route
-                </small>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <div class="stat-top">
-
-                    <div class="stat-icon purple-icon">
-                        ◇
-                    </div>
-
-                    <span class="trend positive">
-                        91.2%
-                    </span>
-
-                </div>
-
-                <p>Delivery Success</p>
-
-                <div class="stat-value">
-                    87.6<span>%</span>
-                </div>
-
-                <small>
-                    Last 30 days
-                </small>
-
-            </div>
-
-
-        </section>
-
-
-        <!-- =========================
-             MAIN DASHBOARD GRID
-        ========================== -->
-
-        <section class="dashboard-grid">
-
-
-            <!-- MAP -->
-
-            <div class="panel map-panel">
-
-                <div class="panel-header">
-
-                    <div>
-
-                        <div class="panel-title-row">
-
-                            <span class="green-indicator"></span>
-
-                            <h2>NER Live Accessibility Map</h2>
-
+                        <div class="hero-label">
+                            NORTH EASTERN REGION • INTELLIGENCE PLATFORM
                         </div>
+
+                        <h1>
+                            CONNECTING THE
+                            <span>NORTH EAST</span>
+                            SMARTER
+                        </h1>
 
                         <p>
-                            Real-time transportation network status
+                            NER-LINK combines AI, GIS, weather intelligence,
+                            vehicle tracking and field reports to improve
+                            logistics accessibility across the North Eastern Region.
                         </p>
+
+                        <div class="hero-actions">
+
+                            <button class="primary-button" id="analyzeBtn">
+                                ◈ Run AI Route Analysis
+                            </button>
+
+                            <button class="secondary-button" data-screen-btn="emergency">
+                                ⚠ Emergency Mode
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="hero-decoration">
+                        <div class="orbit orbit-one"></div>
+                        <div class="orbit orbit-two"></div>
+                        <div class="orbit-center">AI</div>
+                    </div>
+
+                </div>
+
+
+                <!-- STATS -->
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">◉</div>
+
+                        <div class="stat-label">
+                            REGIONAL CONNECTIVITY
+                        </div>
+
+                        <div class="stat-value">87.4%</div>
+
+                        <div class="stat-change positive">
+                            ▲ 4.8% this week
+                        </div>
 
                     </div>
 
 
-                    <div class="map-controls">
+                    <div class="stat-card">
 
-                        <button class="map-filter active-filter">
-                            All
-                        </button>
+                        <div class="stat-icon">⚠</div>
 
-                        <button class="map-filter">
-                            Routes
-                        </button>
+                        <div class="stat-label">
+                            HIGH-RISK CORRIDORS
+                        </div>
 
-                        <button class="map-filter">
-                            Vehicles
-                        </button>
+                        <div class="stat-value">12</div>
+
+                        <div class="stat-change warning">
+                            ● 4 require attention
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">🚚</div>
+
+                        <div class="stat-label">
+                            ACTIVE VEHICLES
+                        </div>
+
+                        <div class="stat-value" id="vehicleCount">
+                            148
+                        </div>
+
+                        <div class="stat-change positive">
+                            ● Live tracking
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">📦</div>
+
+                        <div class="stat-label">
+                            DELIVERIES IN TRANSIT
+                        </div>
+
+                        <div class="stat-value" id="deliveryCount">
+                            326
+                        </div>
+
+                        <div class="stat-change positive">
+                            ▲ 12 delivered today
+                        </div>
 
                     </div>
 
                 </div>
 
 
-                <div class="map-area">
+                <!-- MAP + AI -->
 
-                    <div class="map-grid-lines"></div>
-
-
-                    <!-- Decorative NER Map -->
-
-                    <div class="ner-map">
-
-                        <div class="state state-1">
-                            <span>ARUNACHAL</span>
-                        </div>
-
-                        <div class="state state-2">
-                            <span>ASSAM</span>
-                        </div>
-
-                        <div class="state state-3">
-                            <span>NAGALAND</span>
-                        </div>
-
-                        <div class="state state-4">
-                            <span>MANIPUR</span>
-                        </div>
-
-                        <div class="state state-5">
-                            <span>MEGHALAYA</span>
-                        </div>
-
-                        <div class="state state-6">
-                            <span>TRIPURA</span>
-                        </div>
-
-                        <div class="state state-7">
-                            <span>MIZORAM</span>
-                        </div>
-
-                        <div class="state state-8">
-                            <span>SIKKIM</span>
-                        </div>
+                <div class="dashboard-grid">
 
 
-                        <!-- Route Lines -->
+                    <!-- MAP -->
 
-                        <div class="route route-one"></div>
-                        <div class="route route-two"></div>
-                        <div class="route route-three"></div>
-                        <div class="route route-four"></div>
+                    <div class="panel map-panel">
 
+                        <div class="panel-header">
 
-                        <!-- Location Points -->
+                            <div>
+                                <div class="panel-title">
+                                    NER ACCESSIBILITY MAP
+                                </div>
 
-                        <div class="map-point point-green point-a">
-                            <span></span>
-                        </div>
+                                <div class="panel-subtitle">
+                                    Schematic regional connectivity view
+                                </div>
+                            </div>
 
-                        <div class="map-point point-green point-b">
-                            <span></span>
-                        </div>
+                            <div class="map-toolbar">
 
-                        <div class="map-point point-orange point-c">
-                            <span></span>
-                        </div>
+                                <button class="map-filter active">
+                                    ALL
+                                </button>
 
-                        <div class="map-point point-red point-d">
-                            <span></span>
+                                <button class="map-filter">
+                                    ROADS
+                                </button>
+
+                                <button class="map-filter">
+                                    VEHICLES
+                                </button>
+
+                                <button class="map-filter">
+                                    RISKS
+                                </button>
+
+                            </div>
+
                         </div>
 
 
-                        <!-- Vehicle -->
+                        <div class="map-area">
 
-                        <div class="vehicle-marker vehicle-one">
-                            🚚
+                            <div class="grid-lines"></div>
+
+                            <div class="ner-map">
+
+                                <div class="region-shape"></div>
+
+                                <!-- ROUTES -->
+
+                                <div class="map-route route-one"></div>
+                                <div class="map-route route-two"></div>
+                                <div class="map-route route-three"></div>
+                                <div class="map-route route-danger"></div>
+
+
+                                <!-- STATES -->
+
+                                <div class="state sikkim">
+                                    SIKKIM
+                                </div>
+
+                                <div class="state arunachal">
+                                    ARUNACHAL
+                                </div>
+
+                                <div class="state assam">
+                                    ASSAM
+                                </div>
+
+                                <div class="state nagaland">
+                                    NAGALAND
+                                </div>
+
+                                <div class="state manipur">
+                                    MANIPUR
+                                </div>
+
+                                <div class="state mizoram">
+                                    MIZORAM
+                                </div>
+
+                                <div class="state tripura">
+                                    TRIPURA
+                                </div>
+
+                                <div class="state meghalaya">
+                                    MEGHALAYA
+                                </div>
+
+
+                                <!-- MAP POINTS -->
+
+                                <div class="map-point point-green point-one"></div>
+                                <div class="map-point point-orange point-two"></div>
+                                <div class="map-point point-red point-three"></div>
+                                <div class="map-point point-green point-four"></div>
+                                <div class="map-point point-orange point-five"></div>
+
+
+                                <!-- VEHICLES -->
+
+                                <div class="vehicle vehicle-one">
+                                    🚚
+                                </div>
+
+                                <div class="vehicle vehicle-two">
+                                    🚚
+                                </div>
+
+                            </div>
+
+
+                            <div class="map-info-card">
+
+                                <strong>LIVE REGIONAL FEED</strong>
+
+                                <span>
+                                    Data simulation active
+                                </span>
+
+                                <div class="map-info-status">
+                                    <span class="status-dot"></span>
+                                    Monitoring 8 states
+                                </div>
+
+                            </div>
+
+
+                            <div class="map-legend">
+
+                                <div>
+                                    <i class="legend green"></i>
+                                    Accessible
+                                </div>
+
+                                <div>
+                                    <i class="legend orange"></i>
+                                    Risk
+                                </div>
+
+                                <div>
+                                    <i class="legend red"></i>
+                                    Blocked
+                                </div>
+
+                            </div>
+
                         </div>
-
-                        <div class="vehicle-marker vehicle-two">
-                            🚚
-                        </div>
-
-
-                        <div class="map-label label-assam">
-                            <strong>ASSAM</strong>
-                            <small>92% accessible</small>
-                        </div>
-
-                        <div class="map-label label-manipur">
-                            <strong>MANIPUR</strong>
-                            <small>61% accessible</small>
-                        </div>
-
 
                     </div>
 
 
-                    <!-- Map Legend -->
+                    <!-- AI RISK -->
 
-                    <div class="map-legend">
+                    <div class="panel risk-panel">
 
-                        <div>
-                            <span class="legend-dot green-dot"></span>
-                            Accessible
-                        </div>
-
-                        <div>
-                            <span class="legend-dot orange-dot"></span>
-                            At Risk
-                        </div>
-
-                        <div>
-                            <span class="legend-dot red-dot"></span>
-                            Blocked
-                        </div>
-
-                        <div>
-                            <span class="legend-vehicle">🚚</span>
-                            Vehicle
-                        </div>
-
-                    </div>
-
-
-                    <div class="map-live">
-                        <span class="pulse"></span>
-                        LIVE
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- AI RISK PANEL -->
-
-            <div class="panel risk-panel">
-
-                <div class="panel-header">
-
-                    <div>
-
-                        <div class="panel-title-row">
-
-                            <span class="orange-indicator"></span>
-
-                            <h2>AI Risk Intelligence</h2>
-
-                        </div>
-
-                        <p>
-                            Predictive route disruption analysis
-                        </p>
-
-                    </div>
-
-                    <button class="dots-button">
-                        •••
-                    </button>
-
-                </div>
-
-
-                <div class="risk-main">
-
-                    <div class="risk-score">
-
-                        <div class="score-circle">
-
-                            <div class="score-inner">
-
-                                <strong>78</strong>
-
-                                <span>%</span>
-
-                            </div>
-
-                        </div>
-
-                        <div class="risk-status">
-                            HIGH RISK
-                        </div>
-
-                        <p>
-                            AI confidence score
-                        </p>
-
-                    </div>
-
-
-                    <div class="risk-route">
-
-                        <div class="route-heading">
-
-                            <span>MONITORED CORRIDOR</span>
-
-                            <b>Guwahati → Tawang</b>
-
-                        </div>
-
-
-                        <div class="risk-factor">
-
-                            <div class="factor-info">
-
-                                <span>Rainfall Intensity</span>
-                                <strong>86%</strong>
-
-                            </div>
-
-                            <div class="progress">
-                                <div class="progress-fill rainfall"></div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="risk-factor">
-
-                            <div class="factor-info">
-
-                                <span>Historical Risk</span>
-                                <strong>71%</strong>
-
-                            </div>
-
-                            <div class="progress">
-                                <div class="progress-fill history"></div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="risk-factor">
-
-                            <div class="factor-info">
-
-                                <span>Road Condition</span>
-                                <strong>62%</strong>
-
-                            </div>
-
-                            <div class="progress">
-                                <div class="progress-fill road"></div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="prediction-box">
-
-                            <div class="prediction-icon">
-                                ⚠
-                            </div>
+                        <div class="panel-header">
 
                             <div>
 
-                                <strong>Possible Disruption</strong>
+                                <div class="panel-title">
+                                    AI RISK ENGINE
+                                </div>
 
-                                <span>
-                                    Landslide / Road Blockage
+                                <div class="panel-subtitle">
+                                    Predictive corridor analysis
+                                </div>
+
+                            </div>
+
+                            <span class="ai-live">
+                                AI LIVE
+                            </span>
+
+                        </div>
+
+
+                        <div class="risk-body">
+
+                            <div class="risk-score">
+
+                                <div class="risk-circle">
+
+                                    <div>
+                                        <strong id="riskNumber">
+                                            61
+                                        </strong>
+
+                                        <small>/100</small>
+                                    </div>
+
+                                </div>
+
+                                <div class="risk-level">
+                                    MODERATE RISK
+                                </div>
+
+                                <div class="risk-route">
+                                    Guwahati → Tawang
+                                </div>
+
+                            </div>
+
+
+                            <div class="factor">
+
+                                <div class="factor-top">
+                                    <span>Heavy Rainfall</span>
+                                    <strong>72%</strong>
+                                </div>
+
+                                <div class="progress">
+                                    <div style="width:72%"></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="factor">
+
+                                <div class="factor-top">
+                                    <span>Terrain Risk</span>
+                                    <strong>64%</strong>
+                                </div>
+
+                                <div class="progress">
+                                    <div style="width:64%"></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="factor">
+
+                                <div class="factor-top">
+                                    <span>Road Condition</span>
+                                    <strong>48%</strong>
+                                </div>
+
+                                <div class="progress">
+                                    <div style="width:48%"></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="factor">
+
+                                <div class="factor-top">
+                                    <span>Historical Incidents</span>
+                                    <strong>57%</strong>
+                                </div>
+
+                                <div class="progress">
+                                    <div style="width:57%"></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="ai-result">
+
+                                <strong>
+                                    ◈ AI RECOMMENDATION
+                                </strong>
+
+                                <p>
+                                    Alternate corridor detected through
+                                    Tezpur. Estimated delay reduction:
+                                    <b>38 minutes</b>.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOWER DASHBOARD -->
+
+                <div class="bottom-grid">
+
+
+                    <!-- ALERTS -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <div class="panel-title">
+                                    ACTIVE ALERTS
+                                </div>
+
+                                <div class="panel-subtitle">
+                                    Regional disruption monitoring
+                                </div>
+                            </div>
+
+                            <button class="view-all">
+                                View all
+                            </button>
+
+                        </div>
+
+
+                        <div class="alert-list">
+
+                            <div class="alert-item">
+
+                                <div class="alert-icon red">
+                                    ⚠
+                                </div>
+
+                                <div class="alert-content">
+
+                                    <h4>
+                                        Landslide Risk Detected
+                                    </h4>
+
+                                    <p>
+                                        NH-13 corridor near Bomdila
+                                    </p>
+
+                                </div>
+
+                                <span class="alert-time">
+                                    8 min
+                                </span>
+
+                            </div>
+
+
+                            <div class="alert-item">
+
+                                <div class="alert-icon orange">
+                                    !
+                                </div>
+
+                                <div class="alert-content">
+
+                                    <h4>
+                                        Heavy Rainfall Warning
+                                    </h4>
+
+                                    <p>
+                                        East Siang district
+                                    </p>
+
+                                </div>
+
+                                <span class="alert-time">
+                                    18 min
+                                </span>
+
+                            </div>
+
+
+                            <div class="alert-item">
+
+                                <div class="alert-icon green">
+                                    ✓
+                                </div>
+
+                                <div class="alert-content">
+
+                                    <h4>
+                                        Route Restored
+                                    </h4>
+
+                                    <p>
+                                        Aizawl–Silchar corridor
+                                    </p>
+
+                                </div>
+
+                                <span class="alert-time">
+                                    31 min
                                 </span>
 
                             </div>
 
                         </div>
 
+                    </div>
 
-                        <button class="primary-button">
-                            FIND ALTERNATE ROUTE
-                            <span>→</span>
+
+                    <!-- WEATHER -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <div class="panel-title">
+                                    WEATHER INTELLIGENCE
+                                </div>
+
+                                <div class="panel-subtitle">
+                                    Regional conditions
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="weather">
+
+                            <div class="weather-main">
+
+                                <div>
+                                    <div class="temperature">
+                                        24°
+                                    </div>
+
+                                    <div class="weather-description">
+                                        Heavy Rain
+                                    </div>
+
+                                    <small>
+                                        Guwahati, Assam
+                                    </small>
+                                </div>
+
+                                <div class="weather-icon">
+                                    🌧️
+                                </div>
+
+                            </div>
+
+
+                            <div class="weather-details">
+
+                                <div>
+                                    <span>Humidity</span>
+                                    <strong>82%</strong>
+                                </div>
+
+                                <div>
+                                    <span>Wind</span>
+                                    <strong>18 km/h</strong>
+                                </div>
+
+                                <div>
+                                    <span>Visibility</span>
+                                    <strong>6 km</strong>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DELIVERIES -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <div class="panel-title">
+                                    ESSENTIAL DELIVERIES
+                                </div>
+
+                                <div class="panel-subtitle">
+                                    Priority supply movement
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="delivery-list">
+
+                            <div class="delivery-item">
+
+                                <div class="delivery-top">
+                                    <strong>Medical Supplies</strong>
+                                    <span>78%</span>
+                                </div>
+
+                                <p>
+                                    Guwahati → Imphal
+                                </p>
+
+                                <div class="delivery-progress">
+                                    <div style="width:78%"></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="delivery-item">
+
+                                <div class="delivery-top">
+                                    <strong>Food Supplies</strong>
+                                    <span>54%</span>
+                                </div>
+
+                                <p>
+                                    Silchar → Aizawl
+                                </p>
+
+                                <div class="delivery-progress">
+                                    <div style="width:54%"></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="delivery-item">
+
+                                <div class="delivery-top">
+                                    <strong>Construction Material</strong>
+                                    <span>91%</span>
+                                </div>
+
+                                <p>
+                                    Tezpur → Itanagar
+                                </p>
+
+                                <div class="delivery-progress">
+                                    <div style="width:91%"></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 LIVE MAP
+                 ================================================== -->
+
+            <section class="screen" id="map">
+
+                <div class="section-heading">
+
+                    <span>GIS INTELLIGENCE</span>
+
+                    <h2>Live Accessibility Map</h2>
+
+                    <p>
+                        Monitor roads, corridors, vehicles and disruption zones
+                        across the North Eastern Region.
+                    </p>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="map-toolbar-large">
+
+                        <button class="filter-button active">
+                            All Layers
+                        </button>
+
+                        <button class="filter-button">
+                            Roads
+                        </button>
+
+                        <button class="filter-button">
+                            Bridges
+                        </button>
+
+                        <button class="filter-button">
+                            Vehicles
+                        </button>
+
+                        <button class="filter-button">
+                            Risk Zones
                         </button>
 
                     </div>
 
-                </div>
 
-            </div>
+                    <div class="large-map">
+
+                        <div class="large-map-grid"></div>
+
+                        <div class="large-region"></div>
+
+                        <div class="large-route route-a"></div>
+                        <div class="large-route route-b"></div>
+                        <div class="large-route route-c"></div>
+
+                        <div class="large-state state-a">SIKKIM</div>
+                        <div class="large-state state-b">ASSAM</div>
+                        <div class="large-state state-c">ARUNACHAL</div>
+                        <div class="large-state state-d">NAGALAND</div>
+                        <div class="large-state state-e">MANIPUR</div>
+                        <div class="large-state state-f">MIZORAM</div>
+                        <div class="large-state state-g">TRIPURA</div>
+                        <div class="large-state state-h">MEGHALAYA</div>
 
 
-        </section>
+                        <div class="map-marker marker-green m1"></div>
+                        <div class="map-marker marker-green m2"></div>
+                        <div class="map-marker marker-orange m3"></div>
+                        <div class="map-marker marker-red m4"></div>
+                        <div class="map-marker marker-orange m5"></div>
 
 
-        <!-- =========================
-             LOWER DASHBOARD
-        ========================== -->
+                        <div class="map-control-card">
 
-        <section class="lower-grid">
+                            <strong>SELECTED CORRIDOR</strong>
 
+                            <h3>NH-27</h3>
 
-            <!-- ALERTS -->
+                            <div class="corridor-status">
+                                <span>Accessibility</span>
+                                <b>82%</b>
+                            </div>
 
-            <div class="panel alerts-panel">
+                            <div class="corridor-status">
+                                <span>Traffic</span>
+                                <b>Moderate</b>
+                            </div>
 
-                <div class="panel-header">
-
-                    <div>
-
-                        <div class="panel-title-row">
-
-                            <span class="orange-indicator"></span>
-
-                            <h2>Active Alerts</h2>
+                            <div class="corridor-status">
+                                <span>AI Risk</span>
+                                <b class="orange-text">43%</b>
+                            </div>
 
                         </div>
-
-                        <p>
-                            Recent transportation incidents
-                        </p>
 
                     </div>
 
-                    <button class="view-all">
-                        View all →
-                    </button>
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 AI RISK
+                 ================================================== -->
+
+            <section class="screen" id="ai">
+
+                <div class="section-heading">
+
+                    <span>ARTIFICIAL INTELLIGENCE</span>
+
+                    <h2>AI Risk Prediction Engine</h2>
+
+                    <p>
+                        Predict potential logistics disruptions before they occur.
+                    </p>
 
                 </div>
 
 
-                <div class="alert-list">
+                <div class="ai-grid">
 
+                    <div class="panel ai-main-card">
 
-                    <div class="alert-item">
+                        <div class="ai-big-score">
 
-                        <div class="alert-symbol critical">
-                            !
-                        </div>
+                            <div class="big-risk-circle">
 
-                        <div class="alert-content">
+                                <strong id="bigRisk">
+                                    61
+                                </strong>
 
-                            <strong>Road Blockage Detected</strong>
+                                <span>RISK SCORE</span>
+
+                            </div>
+
+                            <h3>Moderate Disruption Risk</h3>
 
                             <p>
-                                NH-2 · Manipur
+                                Guwahati → Tawang Corridor
                             </p>
 
                         </div>
 
-                        <div class="alert-time">
-                            8 min ago
-                        </div>
-
                     </div>
 
 
-                    <div class="alert-item">
+                    <div class="panel">
 
-                        <div class="alert-symbol warning-alert">
-                            ⚠
-                        </div>
+                        <div class="panel-header">
 
-                        <div class="alert-content">
-
-                            <strong>Heavy Rainfall Warning</strong>
-
-                            <p>
-                                East Khasi Hills · Meghalaya
-                            </p>
+                            <div>
+                                <div class="panel-title">
+                                    PREDICTION FACTORS
+                                </div>
+                            </div>
 
                         </div>
 
-                        <div class="alert-time">
-                            21 min ago
+                        <div class="prediction-list">
+
+                            <div class="prediction-row">
+                                <span>Rainfall Probability</span>
+                                <strong>72%</strong>
+                            </div>
+
+                            <div class="prediction-row">
+                                <span>Landslide Probability</span>
+                                <strong>41%</strong>
+                            </div>
+
+                            <div class="prediction-row">
+                                <span>Road Damage Index</span>
+                                <strong>38%</strong>
+                            </div>
+
+                            <div class="prediction-row">
+                                <span>Historical Disruptions</span>
+                                <strong>57%</strong>
+                            </div>
+
+                            <div class="prediction-row">
+                                <span>Traffic Density</span>
+                                <strong>34%</strong>
+                            </div>
+
                         </div>
 
                     </div>
-
-
-                    <div class="alert-item">
-
-                        <div class="alert-symbol info-alert">
-                            i
-                        </div>
-
-                        <div class="alert-content">
-
-                            <strong>Delivery Delay Predicted</strong>
-
-                            <p>
-                                Medicine Supply · Mizoram
-                            </p>
-
-                        </div>
-
-                        <div class="alert-time">
-                            34 min ago
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-
-            <!-- WEATHER -->
-
-            <div class="panel weather-panel">
-
-                <div class="panel-header">
-
-                    <div>
-
-                        <div class="panel-title-row">
-
-                            <span class="blue-indicator"></span>
-
-                            <h2>Regional Weather</h2>
-
-                        </div>
-
-                        <p>
-                            Current conditions
-                        </p>
-
-                    </div>
-
-                    <span class="weather-live">
-                        ● LIVE
-                    </span>
 
                 </div>
 
 
-                <div class="weather-main">
+                <div class="panel alternate-panel">
 
-                    <div class="weather-icon">
-                        ☁
-                    </div>
+                    <div class="panel-header">
 
-                    <div>
+                        <div>
+                            <div class="panel-title">
+                                AI ALTERNATE ROUTE RECOMMENDATION
+                            </div>
 
-                        <strong>Heavy Rain</strong>
+                            <div class="panel-subtitle">
+                                Optimized based on current risk factors
+                            </div>
+                        </div>
 
-                        <span>
-                            Meghalaya
+                        <span class="recommended">
+                            RECOMMENDED
                         </span>
 
                     </div>
 
-                    <div class="temperature">
-                        21°
-                    </div>
 
-                </div>
+                    <div class="route-recommendation">
 
-
-                <div class="weather-details">
-
-                    <div>
-                        <span>Rainfall</span>
-                        <strong>86 mm</strong>
-                    </div>
-
-                    <div>
-                        <span>Visibility</span>
-                        <strong>Low</strong>
-                    </div>
-
-                    <div>
-                        <span>Road Risk</span>
-                        <strong class="high-text">HIGH</strong>
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-            <!-- DELIVERY -->
-
-            <div class="panel delivery-panel">
-
-                <div class="panel-header">
-
-                    <div>
-
-                        <div class="panel-title-row">
-
-                            <span class="green-indicator"></span>
-
-                            <h2>Essential Deliveries</h2>
-
+                        <div class="route-point">
+                            <span>A</span>
+                            <strong>Guwahati</strong>
                         </div>
 
+                        <div class="route-line">
+                            <div></div>
+                            <small>AI OPTIMIZED</small>
+                        </div>
+
+                        <div class="route-point">
+                            <span>B</span>
+                            <strong>Tezpur</strong>
+                        </div>
+
+                        <div class="route-line">
+                            <div></div>
+                            <small>LOW RISK</small>
+                        </div>
+
+                        <div class="route-point">
+                            <span>C</span>
+                            <strong>Tawang</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="route-results">
+
+                        <div>
+                            <span>Estimated ETA</span>
+                            <strong>7h 42m</strong>
+                        </div>
+
+                        <div>
+                            <span>Delay Reduction</span>
+                            <strong class="green-text">38 min</strong>
+                        </div>
+
+                        <div>
+                            <span>Risk Reduction</span>
+                            <strong class="green-text">26%</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 LOGISTICS
+                 ================================================== -->
+
+            <section class="screen" id="logistics">
+
+                <div class="section-heading">
+
+                    <span>SUPPLY CHAIN INTELLIGENCE</span>
+
+                    <h2>Logistics Operations</h2>
+
+                    <p>
+                        Track essential commodities and vehicles across the region.
+                    </p>
+
+                </div>
+
+
+                <div class="card-grid">
+
+                    <div class="info-card">
+
+                        <div class="info-icon green-icon">
+                            🚚
+                        </div>
+
+                        <span>Vehicles Tracked</span>
+
+                        <strong>148</strong>
+
+                        <small>Live GPS monitoring</small>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <div class="info-icon orange-icon">
+                            📦
+                        </div>
+
+                        <span>Active Shipments</span>
+
+                        <strong>326</strong>
+
+                        <small>Essential commodities</small>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <div class="info-icon blue-icon">
+                            ✓
+                        </div>
+
+                        <span>Successful Deliveries</span>
+
+                        <strong>94.2%</strong>
+
+                        <small>Current efficiency</small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel table-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <div class="panel-title">
+                                PRIORITY SHIPMENTS
+                            </div>
+
+                            <div class="panel-subtitle">
+                                Live logistics monitoring
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>Shipment</th>
+                                    <th>Commodity</th>
+                                    <th>Vehicle</th>
+                                    <th>Route</th>
+                                    <th>Progress</th>
+                                    <th>Status</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>NER-2048</td>
+                                    <td>Medical Supplies</td>
+                                    <td>TRK-4812</td>
+                                    <td>Guwahati → Imphal</td>
+                                    <td>78%</td>
+                                    <td><span class="badge green-badge">ON ROUTE</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>NER-2049</td>
+                                    <td>Food Supplies</td>
+                                    <td>TRK-3921</td>
+                                    <td>Silchar → Aizawl</td>
+                                    <td>54%</td>
+                                    <td><span class="badge orange-badge">DELAYED</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>NER-2050</td>
+                                    <td>Construction Material</td>
+                                    <td>TRK-7710</td>
+                                    <td>Tezpur → Itanagar</td>
+                                    <td>91%</td>
+                                    <td><span class="badge green-badge">ON ROUTE</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>NER-2051</td>
+                                    <td>Medicine</td>
+                                    <td>TRK-2188</td>
+                                    <td>Dimapur → Kohima</td>
+                                    <td>32%</td>
+                                    <td><span class="badge red-badge">HIGH RISK</span></td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 EMERGENCY
+                 ================================================== -->
+
+            <section class="screen" id="emergency">
+
+                <div class="emergency-banner">
+
+                    <div>
+                        <span>EMERGENCY RESPONSE SYSTEM</span>
+
+                        <h2>
+                            ⚠ Regional Emergency Mode
+                        </h2>
+
                         <p>
-                            Current supply movement
+                            Prioritize emergency routes, essential supplies
+                            and disaster response operations.
+                        </p>
+                    </div>
+
+                    <strong>
+                        ACTIVE MONITORING
+                    </strong>
+
+                </div>
+
+
+                <div class="emergency-grid">
+
+                    <div class="emergency-card">
+
+                        <span>BLOCKED CORRIDORS</span>
+
+                        <strong>07</strong>
+
+                        <p>
+                            Routes requiring immediate attention
                         </p>
 
                     </div>
 
-                    <button class="view-all">
-                        Details →
-                    </button>
+
+                    <div class="emergency-card">
+
+                        <span>EMERGENCY VEHICLES</span>
+
+                        <strong>24</strong>
+
+                        <p>
+                            Response vehicles currently active
+                        </p>
+
+                    </div>
+
+
+                    <div class="emergency-card">
+
+                        <span>PRIORITY DELIVERIES</span>
+
+                        <strong>61</strong>
+
+                        <p>
+                            Essential supply deliveries
+                        </p>
+
+                    </div>
 
                 </div>
 
 
-                <div class="delivery-list">
+                <div class="emergency-columns">
 
+                    <div class="panel">
 
-                    <div class="delivery-row">
+                        <div class="panel-header">
 
-                        <div class="delivery-icon medicine">
-                            ✚
-                        </div>
-
-                        <div class="delivery-info">
-
-                            <strong>Medical Supplies</strong>
-
-                            <span>Assam → Manipur</span>
-
-                        </div>
-
-                        <div class="delivery-progress">
-
-                            <div class="mini-progress">
-                                <span style="width:87%"></span>
+                            <div class="panel-title">
+                                EMERGENCY CORRIDORS
                             </div>
 
-                            <small>87%</small>
+                        </div>
+
+                        <div class="emergency-route">
+
+                            <div>
+                                <strong>NH-15</strong>
+                                <span>Assam → Arunachal</span>
+                            </div>
+
+                            <b class="green-text">OPEN</b>
+
+                        </div>
+
+                        <div class="emergency-route">
+
+                            <div>
+                                <strong>NH-27</strong>
+                                <span>Silchar → Aizawl</span>
+                            </div>
+
+                            <b class="orange-text">RISK</b>
+
+                        </div>
+
+                        <div class="emergency-route">
+
+                            <div>
+                                <strong>NH-2</strong>
+                                <span>Dimapur → Imphal</span>
+                            </div>
+
+                            <b class="red-text">BLOCKED</b>
 
                         </div>
 
                     </div>
 
 
-                    <div class="delivery-row">
+                    <div class="panel">
 
-                        <div class="delivery-icon food">
-                            ◉
-                        </div>
+                        <div class="panel-header">
 
-                        <div class="delivery-info">
-
-                            <strong>Food Supplies</strong>
-
-                            <span>Meghalaya → Mizoram</span>
-
-                        </div>
-
-                        <div class="delivery-progress">
-
-                            <div class="mini-progress">
-                                <span style="width:72%"></span>
+                            <div class="panel-title">
+                                RESPONSE PRIORITIES
                             </div>
 
-                            <small>72%</small>
+                        </div>
+
+                        <div class="priority">
+
+                            <span>01</span>
+
+                            <div>
+                                <strong>Medical Supplies</strong>
+                                <small>Imphal district</small>
+                            </div>
+
+                            <b>CRITICAL</b>
+
+                        </div>
+
+                        <div class="priority">
+
+                            <span>02</span>
+
+                            <div>
+                                <strong>Food Supplies</strong>
+                                <small>Mizoram region</small>
+                            </div>
+
+                            <b>HIGH</b>
+
+                        </div>
+
+                        <div class="priority">
+
+                            <span>03</span>
+
+                            <div>
+                                <strong>Fuel Supply</strong>
+                                <small>Nagaland region</small>
+                            </div>
+
+                            <b>HIGH</b>
 
                         </div>
 
                     </div>
-
-
-                    <div class="delivery-row">
-
-                        <div class="delivery-icon construction">
-                            ▣
-                        </div>
-
-                        <div class="delivery-info">
-
-                            <strong>Construction Materials</strong>
-
-                            <span>Nagaland → Assam</span>
-
-                        </div>
-
-                        <div class="delivery-progress">
-
-                            <div class="mini-progress">
-                                <span style="width:94%"></span>
-                            </div>
-
-                            <small>94%</small>
-
-                        </div>
-
-                    </div>
-
 
                 </div>
 
-            </div>
+            </section>
 
 
-        </section>
+            <!-- ==================================================
+                 FIELD REPORTS
+                 ================================================== -->
+
+            <section class="screen" id="reports">
+
+                <div class="section-heading">
+
+                    <span>FIELD INTELLIGENCE</span>
+
+                    <h2>Field Reports</h2>
+
+                    <p>
+                        Report road damage, landslides, floods and other incidents.
+                    </p>
+
+                </div>
 
 
-        <!-- =========================
-             FOOTER
-        ========================== -->
+                <div class="report-grid">
 
-        <footer class="footer">
+                    <div class="panel">
 
-            <div>
-                NER-LINK © 2026 · Smart Logistics & Accessibility Intelligence
-            </div>
+                        <div class="panel-header">
 
-            <div>
-                <span class="footer-status"></span>
-                All systems operational
-            </div>
+                            <div>
+                                <div class="panel-title">
+                                    SUBMIT INCIDENT
+                                </div>
 
-        </footer>
+                                <div class="panel-subtitle">
+                                    Geo-tagged field report
+                                </div>
+                            </div>
 
+                        </div>
+
+
+                        <form id="reportForm">
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+
+                                    <label>
+                                        District
+                                    </label>
+
+                                    <select>
+                                        <option>Guwahati</option>
+                                        <option>Imphal</option>
+                                        <option>Aizawl</option>
+                                        <option>Itanagar</option>
+                                        <option>Kohima</option>
+                                        <option>Shillong</option>
+                                    </select>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Incident Type
+                                    </label>
+
+                                    <select>
+                                        <option>Landslide</option>
+                                        <option>Flood</option>
+                                        <option>Road Damage</option>
+                                        <option>Bridge Damage</option>
+                                        <option>Traffic Block</option>
+                                        <option>Heavy Rain</option>
+                                    </select>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Severity
+                                    </label>
+
+                                    <select>
+                                        <option>Low</option>
+                                        <option>Medium</option>
+                                        <option>High</option>
+                                        <option>Critical</option>
+                                    </select>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label>
+                                        GPS Coordinates
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        placeholder="26.1445, 91.7362"
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group full">
+
+                                    <label>
+                                        Description
+                                    </label>
+
+                                    <textarea
+                                        placeholder="Describe the incident and road condition..."
+                                    ></textarea>
+
+                                </div>
+
+
+                                <div class="form-group full">
+
+                                    <div class="upload-box">
+
+                                        <strong>📷 Upload Incident Photo</strong>
+
+                                        <span>
+                                            Drag and drop or choose an image
+                                        </span>
+
+                                        <input type="file">
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                class="primary-button submit-button"
+                            >
+                                Submit Field Report
+                            </button>
+
+                        </form>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <div class="panel-title">
+                                    RECENT REPORTS
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="field-report">
+
+                            <div class="report-status red-status">
+                                HIGH
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Landslide reported
+                                </strong>
+
+                                <small>
+                                    Bomdila • 8 minutes ago
+                                </small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="field-report">
+
+                            <div class="report-status orange-status">
+                                MED
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Road flooding
+                                </strong>
+
+                                <small>
+                                    East Siang • 21 minutes ago
+                                </small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="field-report">
+
+                            <div class="report-status green-status">
+                                LOW
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Minor road damage
+                                </strong>
+
+                                <small>
+                                    Shillong • 43 minutes ago
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="sync-card">
+
+                            <span class="status-dot"></span>
+
+                            <div>
+
+                                <strong>
+                                    Offline Sync Ready
+                                </strong>
+
+                                <small>
+                                    Reports will synchronize when connectivity returns.
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 ANALYTICS
+                 ================================================== -->
+
+            <section class="screen" id="analytics">
+
+                <div class="section-heading">
+
+                    <span>DATA INTELLIGENCE</span>
+
+                    <h2>Regional Analytics</h2>
+
+                    <p>
+                        Operational insights for connectivity and supply movement.
+                    </p>
+
+                </div>
+
+
+                <div class="analytics-cards">
+
+                    <div class="analytics-card">
+
+                        <span>AVERAGE DELIVERY DELAY</span>
+
+                        <strong>34 min</strong>
+
+                        <small class="green-text">
+                            ↓ 18% improvement
+                        </small>
+
+                    </div>
+
+
+                    <div class="analytics-card">
+
+                        <span>ROUTE SUCCESS RATE</span>
+
+                        <strong>92.8%</strong>
+
+                        <small class="green-text">
+                            ↑ 5.2%
+                        </small>
+
+                    </div>
+
+
+                    <div class="analytics-card">
+
+                        <span>DISRUPTIONS PREDICTED</span>
+
+                        <strong>86%</strong>
+
+                        <small>
+                            AI accuracy estimate
+                        </small>
+
+                    </div>
+
+
+                    <div class="analytics-card">
+
+                        <span>FIELD REPORTS</span>
+
+                        <strong>1,248</strong>
+
+                        <small>
+                            This month
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="analytics-grid">
+
+                    <div class="panel chart-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <div class="panel-title">
+                                    CONNECTIVITY TREND
+                                </div>
+
+                                <div class="panel-subtitle">
+                                    Regional accessibility over time
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="chart">
+
+                            <div class="chart-y">
+                                <span>100</span>
+                                <span>75</span>
+                                <span>50</span>
+                                <span>25</span>
+                                <span>0</span>
+                            </div>
+
+                            <div class="bars">
+
+                                <div class="bar" style="height:58%">
+                                    <span>Mon</span>
+                                </div>
+
+                                <div class="bar" style="height:64%">
+                                    <span>Tue</span>
+                                </div>
+
+                                <div class="bar" style="height:71%">
+                                    <span>Wed</span>
+                                </div>
+
+                                <div class="bar" style="height:67%">
+                                    <span>Thu</span>
+                                </div>
+
+                                <div class="bar" style="height:78%">
+                                    <span>Fri</span>
+                                </div>
+
+                                <div class="bar" style="height:84%">
+                                    <span>Sat</span>
+                                </div>
+
+                                <div class="bar" style="height:87%">
+                                    <span>Sun</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div class="panel-title">
+                                HIGH-RISK AREAS
+                            </div>
+
+                        </div>
+
+
+                        <div class="risk-area">
+
+                            <div>
+                                <strong>Arunachal Pradesh</strong>
+
+                                <div class="mini-progress">
+                                    <div style="width:81%"></div>
+                                </div>
+
+                            </div>
+
+                            <b>81%</b>
+
+                        </div>
+
+
+                        <div class="risk-area">
+
+                            <div>
+                                <strong>Manipur</strong>
+
+                                <div class="mini-progress">
+                                    <div style="width:69%"></div>
+                                </div>
+
+                            </div>
+
+                            <b>69%</b>
+
+                        </div>
+
+
+                        <div class="risk-area">
+
+                            <div>
+                                <strong>Mizoram</strong>
+
+                                <div class="mini-progress">
+                                    <div style="width:61%"></div>
+                                </div>
+
+                            </div>
+
+                            <b>61%</b>
+
+                        </div>
+
+
+                        <div class="risk-area">
+
+                            <div>
+                                <strong>Nagaland</strong>
+
+                                <div class="mini-progress">
+                                    <div style="width:54%"></div>
+                                </div>
+
+                            </div>
+
+                            <b>54%</b>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SYSTEM FLOW -->
+
+                <div class="panel flow-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <div class="panel-title">
+                                NER-LINK INTELLIGENCE PIPELINE
+                            </div>
+
+                            <div class="panel-subtitle">
+                                How the platform converts data into logistics decisions
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="flow">
+
+                        <div class="flow-step">
+
+                            <div>📡</div>
+
+                            <strong>DATA SOURCES</strong>
+
+                            <small>
+                                Weather • GPS • GIS • Field Data
+                            </small>
+
+                        </div>
+
+
+                        <div class="flow-arrow">
+                            →
+                        </div>
+
+
+                        <div class="flow-step">
+
+                            <div>🧠</div>
+
+                            <strong>AI / ML</strong>
+
+                            <small>
+                                Risk Prediction
+                            </small>
+
+                        </div>
+
+
+                        <div class="flow-arrow">
+                            →
+                        </div>
+
+
+                        <div class="flow-step">
+
+                            <div>🗺️</div>
+
+                            <strong>GIS ENGINE</strong>
+
+                            <small>
+                                Route Intelligence
+                            </small>
+
+                        </div>
+
+
+                        <div class="flow-arrow">
+                            →
+                        </div>
+
+
+                        <div class="flow-step">
+
+                            <div>⚡</div>
+
+                            <strong>ALERTS</strong>
+
+                            <small>
+                                Early Warning
+                            </small>
+
+                        </div>
+
+
+                        <div class="flow-arrow">
+                            →
+                        </div>
+
+
+                        <div class="flow-step">
+
+                            <div>🚚</div>
+
+                            <strong>ACTION</strong>
+
+                            <small>
+                                Optimized Logistics
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- FOOTER -->
+
+            <footer class="footer">
+
+                <span>
+                    NER-LINK © 2026 • AI Smart Logistics & Accessibility Platform
+                </span>
+
+                <span>
+                    Prototype • SIH Project
+                </span>
+
+            </footer>
+
+        </div>
 
     </main>
 
+</div>
 
-    <script src="js/app.js"></script>
+
+<!-- NOTIFICATION POPUP -->
+
+<div class="notification-panel" id="notificationPanel">
+
+    <div class="notification-header">
+
+        <strong>Notifications</strong>
+
+        <span>3 new</span>
+
+    </div>
+
+
+    <div class="notification-item">
+
+        <strong>⚠ Landslide Risk</strong>
+
+        <span>
+            NH-13 requires attention.
+        </span>
+
+    </div>
+
+
+    <div class="notification-item">
+
+        <strong>🌧 Weather Alert</strong>
+
+        <span>
+            Heavy rainfall predicted in Assam.
+        </span>
+
+    </div>
+
+
+    <div class="notification-item">
+
+        <strong>🚚 Delivery Update</strong>
+
+        <span>
+            Medical shipment reached Imphal.
+        </span>
+
+    </div>
+
+</div>
+
+
+<script src="js/app.js"></script>
 
 </body>
 </html>
+                      
+                       
+
+
+       
+
+
+    
